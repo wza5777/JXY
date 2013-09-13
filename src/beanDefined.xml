@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+http://www.springframework.org/schema/mvc 
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<bean id="adminAction" name="adminAction"
+		class="action.AdminAction">
+		<property name="hibernateService" ref="hibernateService"></property>
+		<property name="service" ref="service"></property>
+	</bean>
+
+
+	<bean id="profferAction" name="profferAction"
+		class="action.ProfferAction">
+		<property name="hibernateService" ref="hibernateService"></property>
+		<property name="service" ref="service"></property>
+	</bean>
+
+	<bean id="operatorAction" name="operatorAction"
+		class="action.OperatorAction">
+		<property name="hibernateService" ref="hibernateService"></property>
+		<property name="service" ref="service"></property>
+	</bean>
+
+
+	<bean id="materialKindAction" name="materialKindAction"
+		class="action.MaterialKindAction">
+		<property name="hibernateService" ref="hibernateService"></property>
+		<property name="service" ref="service"></property>
+	</bean>
+
+	<bean id="materialAction" name="materialAction"
+		class="action.MaterialAction">
+		<property name="hibernateService" ref="hibernateService"></property>
+		<property name="service" ref="service"></property>
+	</bean>
+
+	<bean id="stockAction" name="stockAction"
+		class="action.StockAction">
+		<property name="hibernateService" ref="hibernateService"></property>
+		<property name="service" ref="service"></property>
+	</bean>
+
+
+	<bean id="importBillAction" name="importBillAction"
+		class="action.ImportBillAction">
+		<property name="hibernateService" ref="hibernateService"></property>
+		<property name="service" ref="service"></property>
+	</bean>
+
+	<bean id="exportBillAction" name="exportBillAction"
+		class="action.ExportBillAction">
+		<property name="hibernateService" ref="hibernateService"></property>
+		<property name="service" ref="service"></property>
+	</bean>
+
+	<bean id="limitAction" name="limitAction"
+		class="action.LimitAction">
+	</bean>
+
+	<bean id="limitOperatorAction" name="limitOperatorAction"
+		class="action.LimitOperatorAction">
+		<property name="service" ref="service"></property>
+	</bean>
+
+	<bean id="menuAction" name="menuAction" class="action.MenuAction">
+	</bean>
+
+	<bean id="excelAction" name="excelAction"
+		class="action.ExcelAction">
+		<property name="service" ref="service"></property>
+	</bean>
+
+</beans>

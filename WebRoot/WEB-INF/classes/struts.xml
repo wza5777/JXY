@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.messages.error.content.type.not.allowed"
+		value="文件上传失败，您上传的类型文件不允许" />
+	<constant name="struts.messages.error.file.too.large"
+		value="文件上传失败，您要上传的文件太大" />
+	<constant name="struts.messages.error.uploading"
+		value="文件上传失败，系统内部出现错误，管理员会 尽快解决" />
+	<constant name="struts.multipart.saveDir" value="\tempdir" />
+
+
+	<package name="JXY" extends="struts-default" namespace="/">
+		<action name="*_*" class="{1}Action" method="{2}">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/bmp,image/x-png,image/gif,image/jpeg ,
+					image/png,json
+				</param>
+				<param name="maximumSize">104857600</param>
+				<param name="savePath">/upload</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="success">${successValue}</result>
+		</action>
+
+
+		<action name="upload" class="fileAction" method="upload">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					application/vnd.ms-word, application/vnd.ms-excel,
+					application/pdf, text/plain,application/kswps
+				</param>
+				<param name="maximumSize">104857600</param>
+				<param name="savePath">/upload</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="success">${successValue}</result>
+			<result name="r" type="redirect">${successValue}</result>
+		</action>
+
+		<action name="uploadAdmin" class="fileAction"
+			method="uploadAdmin">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					application/vnd.ms-word, application/vnd.ms-excel,
+					application/pdf, text/plain,application/kswps
+				</param>
+				<param name="maximumSize">104857600</param>
+				<param name="savePath">/upload</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="success">${successValue}</result>
+			<result name="r" type="redirect">${successValue}</result>
+		</action>
+	</package>
+</struts>
